@@ -17,10 +17,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		/* Options
 		/*========================================================*/
 		var defaults = {
-			x: 2,
-			y: 2,
-			rotation: 1,
-			speed: 15,
+			x: 0,
+			y: 0,
+			rotation: 5,
+			speed: 20,
 			opacity: false,
 			opacityMin: .5
 		},
