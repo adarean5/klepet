@@ -26,6 +26,7 @@ function procesirajVnosUporabnika(klepetApp, socket) {
     sporocilo = filtirirajVulgarneBesede(sporocilo);
     klepetApp.posljiSporocilo(trenutniKanal, sporocilo);
     $('#sporocila').append(divElementEnostavniTekst(sporocilo));
+    youTube(sporocilo);
     $('#sporocila').scrollTop($('#sporocila').prop('scrollHeight'));
     images(sporocilo);
   }
@@ -87,6 +88,7 @@ $(document).ready(function() {
       kanal = kanal.substring(1, kanal.length);
       if (kanal != '') {
         $('#seznam-kanalov').append(divElementEnostavniTekst(kanal));
+        youTube(sporocilo.besedilo);
       }
     }
 
@@ -138,6 +140,7 @@ function dodajSmeske(vhodnoBesedilo) {
   return vhodnoBesedilo;
 }
 
+<<<<<<< HEAD
 function images(sporocilo) {
   
   var imgs = sporocilo.toString().match(new RegExp('\\bhttps?:\/\/\\S*\.(png|jpg|gif)\\b', 'g'));
@@ -147,3 +150,20 @@ function images(sporocilo) {
   }
 }
 
+=======
+function getID(url){
+  var videoID;
+  url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if(url[2] !== undefined) {
+    videoID = url[2].split(/[^0-9a-z_\-]/i);
+    videoID = videoID[0];
+  }
+  else videoID = url;
+  return videoID;
+}
+
+function youTube(sporocilo) {
+  var videoID = getID(sporocilo);
+  $('#sporocila').append(divElementHtmlTekst('<iframe src="https://www.youtube.com/embed/' + videoID + '" allowfullscreen></iframe>'));
+}
+>>>>>>> youtube
