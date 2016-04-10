@@ -134,11 +134,6 @@ function dodajSmeske(vhodnoBesedilo) {
   return vhodnoBesedilo;
 }
 
-function youTube(sporocilo) {
-  var videoID = getID(sporocilo);
-  $('#sporocila').append(divElementHtmlTekst('<iframe src="https://www.youtube.com/embed/' + videoID + '" allowfullscreen></iframe>'));
-}
-
 function getID(url){
   var videoID;
   url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
@@ -148,4 +143,9 @@ function getID(url){
   }
   else videoID = url;
   return videoID;
+}
+
+function youTube(sporocilo) {
+  var videoID = getID(sporocilo);
+  $('#sporocila').append(divElementHtmlTekst('<iframe src="https://www.youtube.com/embed/' + videoID + '" allowfullscreen></iframe>'));
 }
